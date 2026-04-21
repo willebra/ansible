@@ -1,0 +1,10 @@
+---
+excludes:
+  paths:
+    - pattern: "lib/ansible/modules/setup.py"
+      reason: "OTHER"
+      comment: "Ansible 'setup' collection module, not a Python package setup.py.
+        ORT's PIP analyzer mistakenly identifies it as a package definition and
+        attempts to execute it to extract dependencies. The file contains no
+        dependency declarations and uses relative imports that fail when executed
+        outside its package context."
